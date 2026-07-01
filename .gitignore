@@ -1,0 +1,25 @@
+﻿# Setup marker — personal, do not share
+.setup-done
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+venv/
+.venv/
+env/

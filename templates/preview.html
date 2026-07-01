@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit Home Decor Post Preview</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Reddit Home Decor Post Preview</h1>
+    <div class="header-actions">
+      <button id="copy-all-btn" class="btn btn-outline">Copy All Drafts</button>
+      <span id="global-status" class="status-badge"></span>
+    </div>
+  </header>
+
+  <main id="drafts-container">
+    <p class="loading">Loading drafts...</p>
+  </main>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script src="/static/script.js?v=2"></script>
+</body>
+</html>

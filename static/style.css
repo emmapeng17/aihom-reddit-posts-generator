@@ -1,0 +1,344 @@
+﻿/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #f5f5f5;
+  color: #1a1a1b;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1b;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-badge {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: #ff4500;
+  color: #fff;
+}
+.btn-primary:hover { background: #e03d00; }
+.btn-primary:active { background: #c93500; }
+
+.btn-secondary {
+  background: #e8e8e8;
+  color: #333;
+}
+.btn-secondary:hover { background: #d4d4d4; }
+
+.btn-outline {
+  background: transparent;
+  color: #0079d3;
+  border: 1px solid #0079d3;
+}
+.btn-outline:hover { background: rgba(0, 121, 211, 0.08); }
+
+.btn-sm { padding: 4px 12px; font-size: 0.8rem; }
+
+/* Ghost button for inline copy */
+.btn-ghost {
+  background: transparent;
+  color: #888;
+  border: none;
+  padding: 2px 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-ghost:hover { background: #e8e8e8; color: #333; }
+
+/* Copy button specific */
+.copy-btn, .copy-post-btn {
+  transition: transform 0.1s;
+}
+.copy-btn:active, .copy-post-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===== Main Container ===== */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.loading {
+  text-align: center;
+  color: #888;
+  padding: 60px 0;
+  font-size: 0.95rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+  padding: 60px 0;
+}
+
+.empty-state p { margin-bottom: 4px; }
+.empty-state .hint { font-size: 0.85rem; color: #aaa; }
+
+/* ===== Post Card ===== */
+.post-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.post-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.post-card-id {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.post-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== Image Preview ===== */
+.image-preview {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f0f0f0;
+  display: none;
+}
+
+.image-preview[src] { display: block; }
+
+.image-placeholder {
+  width: 100%;
+  height: 160px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.draft-image {
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  background: #f0f0f0;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 4px;
+  cursor: zoom-in;
+}
+
+/* ===== Form Fields ===== */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-group input[type="text"],
+.field-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  background: #fff;
+}
+
+.field-group input[type="text"]:focus,
+.field-group textarea:focus {
+  outline: none;
+  border-color: #0079d3;
+  box-shadow: 0 0 0 2px rgba(0, 121, 211, 0.15);
+}
+
+.field-group textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+/* Copy field button positioned inside label */
+.copy-field-btn {
+  font-size: 0.8rem;
+}
+
+/* ===== Alternative Subreddits ===== */
+.alt-subs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.alt-sub-tag {
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  background: #e8f0fe;
+  color: #1a73e8;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* ===== AI Notes ===== */
+.notes-section {
+  margin-top: 4px;
+}
+
+.notes-toggle {
+  font-size: 0.82rem;
+  color: #888;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notes-toggle:hover { color: #555; }
+
+.notes-content {
+  font-size: 0.85rem;
+  color: #666;
+  background: #f9f9f9;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #ddd;
+  display: none;
+  margin-top: 6px;
+}
+
+.notes-content.open { display: block; }
+
+/* ===== Card Actions ===== */
+.post-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid #f0f0f0;
+  background: #fafafa;
+  flex-wrap: wrap;
+}
+
+/* ===== Toast ===== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  z-index: 1000;
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+
+.toast.success { background: #155724; color: #fff; }
+.toast.info { background: #0c5460; color: #fff; }
+.toast.error { background: #721c24; color: #fff; }
+.toast.hidden { opacity: 0; transform: translateX(-50%) translateY(20px); }
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  header { padding: 12px 16px; }
+  header h1 { font-size: 1.1rem; }
+  main { padding: 16px 8px 32px; }
+  .post-card-body { padding: 12px; }
+  .post-card-actions { padding: 10px 12px; flex-direction: column; }
+  .btn { width: 100%; text-align: center; }
+}
